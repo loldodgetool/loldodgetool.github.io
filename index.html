@@ -1,1 +1,186 @@
-Under Construction
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="85b138a2-d17e-4496-a41f-965fda9d999a" data-blockingmode="auto" type="text/javascript"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176887591-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-176887591-1');
+    </script>
+
+    <meta charset="utf-8">
+    <title>LoL Dodge Tool - Queue Dodging Assistant</title>
+    <meta name="title" content="LoL Queue Dodge Tool" />
+    <meta property="og:title" content="LoL Queue Dodge Tool" />
+    <meta name="description" content="Find your win rate at champion select!" />
+    <meta property="og:description" content="Find your win rate at champion select!" />
+    <meta name="keywords" content="League of Legends Queue Dodge, LoL, Champion Suggestion, Champion Select, Team Optimizer" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.loldodgetool.com/" />
+    <meta property="og:image" content="https://www.loldodgetool.com/ldt128x128.png" />
+    <meta property="og:image:secure_url" content="https://www.loldodgetool.com/ldt128x128.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+</head>
+<body style="min-width:350px;">
+    <div class="container content">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="margin-top: 5%; min-width: 600px">
+                <h1 style="text-align: center; font-size:61px; font-weight:bolder;"><a href="/" style="color: white;">LoL Queue Dodge Tool</a></h1>
+                <h5 style="text-align:center; font-size: 22px;">An AI that computes your chance of winning at Champion Select</h5>
+                <br />
+                <br />
+                <br />
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col" style="min-width: 600px">
+                
+				<!-- Content -->
+				
+				<h4 style="text-align: center; font-size: 90px; font-weight: bold;"><a href="/FAQ#prediction-rate" style="color:gold;">65%</a></h4>
+				<h4 style="text-align: center; margin-top: -15px; font-size: 28px; font-weight: bold;">Prediction Rate</h4>
+				<div style="text-align: center; margin-top: 5px;">
+					<span class="yellow-line"></span>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<form method="get" onsubmit="return submitStep1();" autocomplete="off">
+					<input type="hidden" name="step" value="2">
+					<div class="row">
+						<div class="col">
+							<h3>What is your win rate?</h3>
+							<label for="step1Textarea" style="margin-bottom: 15px; font-style: italic;">Copy and paste the chat window text from the client as the example below (optional)</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-8" style="padding-right: 3px;">
+							<div style="font-size: 21px;">
+								<textarea class="form-control" style="height: 6em;" id="step1Textarea" rows="6" placeholder="Gimgoon joined the lobby
+Tian joined the lobby
+Doinb joined the lobby
+Lwx joined the lobby
+Crisp joined the lobby"></textarea>
+								<input type="hidden" name="team" id="step1Team">
+							</div>
+						</div>
+						<div class="col-4" style="padding-left: 3px;">
+							<button type="submit" class="button" style="width: 100%; height: calc(75% - 3px); margin-bottom: 3px; font-size: 25px; font-weight: bold;" id="step1Submit">Predict win rate</button>
+							<button type="button" class="button" style="width: 100%; height: 25%; background-color: goldenrod; border: none; font-size: 20px; font-weight: bold;" id="liveSwitch">Live</button>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div style="text-align: center; margin-top: -1px;">
+						<span style="display: inline-block; width:200px; transform: translate(60px); height: 8px; margin-bottom: 16px; background-color: dimgray; overflow: visible;"></span>
+						<span onclick="location.reload()" style="cursor: pointer; border-style: outset; border-width: 1px; display: inline-block; width: 40px; transform: translate(-160px); height: 40px; background-color: lightgray; border-radius: 20px; overflow: hidden; color: dimgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold; ">1</span>
+						<span onclick="$(this).parents('form:first').submit()" style="cursor: pointer; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-100px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">2</span>
+						<span style="cursor: not-allowed; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-40px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">3</span>
+					</div>
+				</form>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<div class="shake" style="display: none">
+					<a href="/AutoLDT">
+						<br />
+						<br />
+						<p class="bubble speech">Recommended</p>
+						<h3>Auto Sync</h3>
+
+						<div class="row">
+							<div class="col" style="font-size: large;">
+								<p>Skip manual input, let a chrome extension automatically sync the champion selections</p>
+							</div>
+						</div>
+					</a>
+					<br />
+					<br />
+					<br />
+				</div>
+				<div>
+					<h3>How does it work?</h3>
+
+					<div class="row">
+						<div class="col" style="font-size: large;">
+							<ol>
+								<li>
+									Input
+									<ul>
+										<li>Summoners in your team</li>
+										<li>Champions selected</li>
+									</ul>
+								</li>
+								<li>
+									Get
+									<ul>
+										<li>Total Win Rate</li>
+										<li>Effect of each summoner/champion on the win rate <span style="font-size: small; vertical-align:text-top;" class="text-success"> Great for junglers!</span></li>
+									</ul>
+								</li>
+								<li>Queue dodge if the win rate is too low</li>
+							</ol>
+							<br />
+							<p>Check the <a href="/FAQ">FAQ</a> for more information</p>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<br/>				
+				
+				<!-- /Content -->
+				
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <footer class="footer text-muted" id="footer" style="min-width: 600px">
+        <div class="container" style="font-style:italic; font-size: small; word-wrap: normal; white-space: normal; line-height: normal; padding-top: 10px;">
+            LoL Dodge Tool isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+            <br /><br />
+        </div>
+        <div class="border-top">
+            <div class="container" style="padding-top: 10px; padding-bottom: 10px; font-size: large">
+                <div class="row">
+                    <h5 class="" style="margin-left: 15px; margin-right: 15px;">&copy; 2020 - <a href="/">LoL Dodge Tool</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/Live">Live</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/AutoLDT">AutoLDT</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/FAQ">FAQ</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/PatchHistory">Patch History</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/GDPR">GDPR</a></h5>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/5c9f70024b.js" crossorigin="anonymous"></script>
+
+    <script src="/js/site.js"></script>
+    <script src="/js/index.js"></script>
+
+</body>
+</html>
+
