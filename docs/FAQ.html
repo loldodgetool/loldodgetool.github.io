@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="85b138a2-d17e-4496-a41f-965fda9d999a" data-blockingmode="auto" type="text/javascript"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176887591-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-176887591-1');
+    </script>
+
+    <meta charset="utf-8">
+    <title>LoL Dodge Tool - FAQ</title>
+    <meta name="title" content="LoL Queue Dodge Tool" />
+    <meta property="og:title" content="LoL Queue Dodge Tool" />
+    <meta name="description" content="Find your win rate at champion select!" />
+    <meta property="og:description" content="Find your win rate at champion select!" />
+    <meta name="keywords" content="League of Legends Queue Dodge, LoL, Champion Suggestion, Champion Select, Team Optimizer" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.loldodgetool.com/" />
+    <meta property="og:image" content="https://www.loldodgetool.com/ldt128x128.png" />
+    <meta property="og:image:secure_url" content="https://www.loldodgetool.com/ldt128x128.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+</head>
+<body style="min-width:350px;">
+	<div id="overlay"></div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="margin-top: 5%; min-width: 600px">
+                <h1 style="text-align: center; font-size:61px; font-weight:bolder;"><a href="/" style="color: white;">LoL Queue Dodge Tool</a></h1>
+                <h5 style="text-align:center; font-size: 22px;">An AI that computes your chance of winning at Champion Select</h5>
+                <br />
+                <br />
+                <br />
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col" style="min-width: 600px">
+                
+				<!-- Content -->
+
+				<h2 style="text-align: center;">FAQ</h2>
+
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> What is the 'Impact on Win Rate' shown under each input?</h5>
+				<p>
+					These percentages show the difference in winrate if the input was missing / unknown.
+					It could be several reasons.<br />
+					A large <span class="text-success font-weight-bold">positive</span> value on a <span class="font-weight-bold">summoner</span> could mean:
+					<ul>
+						<li>This person has relatively good performance with that champion</li>
+						<li>This person has relatively good performance in general</li>
+						<li>This persons playstyle synergizes well with the rest of the team, or counters the enemy comp</li>
+						<li>This has very low elo with respect to his performance, and this can bring down the enemy team skill level due to matchmaking</li>
+					</ul>
+					A large <span class="text-success font-weight-bold">positive</span> value on a <span class="font-weight-bold">champion</span> on your team could mean:
+					<ul>
+						<li>This person has relatively high chance of carrying with that champion</li>
+						<li>This champion synergizes well with the current team, or counters the enemy comp</li>
+					</ul>
+					A large <span class="text-danger font-weight-bold">negative</span> value on a <span class="font-weight-bold">champion</span> on the enemy team could mean:
+					<ul>
+						<li>This champion synergizes well with their current team, or counters your comp</li>
+					</ul>
+					<span class="font-weight-bold">Note</span>: There are probably more reasons that the neural network discovered that we haven't thought of.
+				</p>
+				<br />
+				<br />
+				<h5 id="prediction-rate"><i class="far fa-user-circle fa-xs"></i> How accurate is the prediction?</h5>
+				<p>
+					The total prediction rate is currently <b>65%</b> which means it will accurately predict the winner for 65% of all games, from the information available at champion select only.
+					If you would only play games with over 50% win rate, you will potentially have a 65% win rate.
+				</p>
+				<img src="/error_graph.png" asp-append-version="true" style="width: 100%;" />
+				<p>
+					The above results come only from games the predictor never saw in the past, a.k.a. "<a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets" target="_blank">Test Set</a>".
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> What information is the prediction based on?</h5>
+				<p>
+					The performance of each summoner on his games, in relation to the champion he chose to play.
+					It considers the actual performance and playstyle (cspm, damage dealt, kda, etc.), not just the win rate.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> Does it work on all queues?</h5>
+				<p>
+					<b>No</b>, only ranked solo queue and ranked flex.
+					You are still able to search for any game type, however there is no guarantee on the results' accuracy.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> How does it work?</h5>
+				<p>
+					A Deep <a href="#" class="model-link" target="_blank">Neural Network</a>, with 23689 input variables, trained on over 60,000,000 games.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> Why should I dodge?</h5>
+				<p>
+					Dodging can help you avoid "free loss" games that you would probably lose anyway.
+					Dodging has been <a href="https://youtu.be/E6nPfdnNQmQ?t=997" target="_blank">encouraged by professional players</a> for many years now.
+					To efficiently dodge can be tricky, and this tool will help you out.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> What happens when I dodge?</h5>
+				<p>
+					In the long term, nothing.
+					You lose some LP, and have to wait 5 minutes before queueing up again.
+					The time and penalty increase if you dodge in succession, however is reset every game you don't dodge.
+					You don't lose any of your hidden matchmaking rating (MMR), which is what decides how much LP you get each win or loss.
+					This means that you will quickly regain your LP after some games because of how much extra LP you will get each win.
+					Check <a href="https://leagueoflegends.fandom.com/wiki/Queue_dodging" target="_blank">Queue dodging</a> for more info.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> When should I dodge?</h5>
+				<p>
+					It is up to you to choose when to dodge, and how much patience and tolerance for LP loss you have.
+					Try to come up with a threshold that works good for you.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> I'm very good at manually dodging, do I really need this?</h5>
+				<p>
+					Can you accurately predict the winner in about 2/3 of all games?
+					Machine learning has historically been better than humans at these kind of prediction tasks, so combined with your intuition you will become even better at dodging.
+					You also know your personal feeling, if you don't feel like playing against a Yasuo mid right now, or if the team starts flaming in champion select, this is important information that the algorithm doesn't have, and may have a great impact on the outcome of the game.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> What will happen in 2021 when <a href="https://na.leagueoflegends.com/en-us/news/dev/dev-updates-on-2020-ranked-matchmaking/" target="_blank">Riot improves matchmaking</a>?</h5>
+				<p>
+					It's a hard question to answer.
+					Riot has the information of both teams summoners when making a team, half which are hidden at champion select.
+					However at champion select you gain the information of champion picks, which can't take part in the matchmaking process.
+					Even if the summoners are perfectly balanced, the champion picks have a large influence on the outcome.
+					We will have to wait and see what the prediction accuracy becomes next season.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> Live mode makes my computer lag</h5>
+				<p>
+					Computing winrates launches 16 <a href="#" class="model-link" target="_blank">neural network</a> computations.
+					In live mode winrates are computed each time a change happens in champion select.
+					If you rather the computations happen one at a time, you can turn that on here:
+					<div class="custom-control custom-switch" style="padding-right: 0px;">
+						<input type="checkbox" class="custom-control-input" id="potatoSwitch" onchange="setPotato(this.checked);">
+						<label class="custom-control-label" for="potatoSwitch">Potato mode</label>
+					</div>
+
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> Why does my friend get different results?</h5>
+				<p>
+					Plese note that when using the extension, the data will be fetched directly from the LoL client, so it will be up to date.
+					However without the extension the data is taken from our server which may not always have updated data.
+					If you get different results when both are using the extension, please report a bug to <a href="mailto:loldodgetool@gmail.com">loldodgetool@gmail.com</a> .
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> It's not working!</h5>
+				<p>
+					Keep in mind these are statistics. The result is not optimized to predict the winner but to predict the win rate, it will default to 50% if it doesn't know.
+					If you do get a high win rate, it's because statistically this is exactly the chance you have to win from the information given.
+					Still, the algorithm doesn't know the enemy team, you could have 2 smurfs but the enemy could have 4.
+					<br />
+					Also, a 80% winrate although it sounds like a free win, will be a loss once every 5 times on average.
+					If 100,000 people play 100 games each with 60% winrate, on average 1,610 people will still have a winrate under 50% on those 100 games.
+					Also, make sure that the knowledge of it being a "free win" doesn't makes you play less focused, which would lower your odds.
+					Keep using the tool, it will work on the long run, and feel free to combine with your own intuition.
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> I found a bug</h5>
+				<p>
+					Please send your experience or any other questions, concerns or suggestions to <a href="mailto:loldodgetool@gmail.com">loldodgetool@gmail.com</a> .
+					We'd love to do our best to fix any problems you encounter with this service.
+				</p>
+				<br />
+				<br />
+				
+				<!-- /Content -->
+				
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <footer class="footer text-muted" id="footer" style="min-width: 600px">
+        <div class="container" style="font-style:italic; font-size: small; word-wrap: normal; white-space: normal; line-height: normal; padding-top: 10px;">
+            LoL Dodge Tool isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+            <br /><br />
+        </div>
+        <div class="border-top">
+            <div class="container" style="padding-top: 10px; padding-bottom: 10px; font-size: large">
+                <div class="row">
+                    <h5 class="" style="margin-left: 15px; margin-right: 15px;">&copy; 2020 - <a href="/">LoL Dodge Tool</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/Live.html">Live</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/AutoLDT.html">AutoLDT</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/FAQ.html">FAQ</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/PatchHistory.html">Patch History</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/GDPR.html">GDPR</a></h5>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/5c9f70024b.js" crossorigin="anonymous"></script>
+
+    <script src="/js/site.js"></script>
+    <script src="/js/faq.js"></script>
+
+</body>
+</html>
+

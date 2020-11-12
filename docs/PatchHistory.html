@@ -11,7 +11,7 @@
     </script>
 
     <meta charset="utf-8">
-    <title>LoL Dodge Tool - Queue Dodging Assistant</title>
+    <title>LoL Dodge Tool - Patch History</title>
     <meta name="title" content="LoL Queue Dodge Tool" />
     <meta property="og:title" content="LoL Queue Dodge Tool" />
     <meta name="description" content="Find your win rate at champion select!" />
@@ -50,100 +50,70 @@
             <div class="col" style="min-width: 600px">
                 
 				<!-- Content -->
-				
-				<h4 style="text-align: center; font-size: 90px; font-weight: bold;"><a href="/FAQ#prediction-rate" style="color:gold;">65%</a></h4>
-				<h4 style="text-align: center; margin-top: -15px; font-size: 28px; font-weight: bold;">Prediction Rate</h4>
-				<div style="text-align: center; margin-top: 5px;">
-					<span class="yellow-line"></span>
-				</div>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<form method="get" action="/Step2.html" onsubmit="return submitStep1();" autocomplete="off">
-					<div class="row">
-						<div class="col">
-							<h3>What is your win rate?</h3>
-							<label for="step1Textarea" style="margin-bottom: 15px; font-style: italic;">Copy and paste the chat window text from the client as the example below (optional)</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-8" style="padding-right: 3px;">
-							<div style="font-size: 21px;">
-								<textarea class="form-control" style="height: 6em;" id="step1Textarea" rows="6" placeholder="Gimgoon joined the lobby
-Tian joined the lobby
-Doinb joined the lobby
-Lwx joined the lobby
-Crisp joined the lobby"></textarea>
-								<input type="hidden" name="team" id="step1Team">
-							</div>
-						</div>
-						<div class="col-4" style="padding-left: 3px;">
-							<button type="submit" class="button" style="width: 100%; height: calc(75% - 3px); margin-bottom: 3px; font-size: 25px; font-weight: bold;" id="step1Submit">Predict win rate</button>
-							<button type="button" class="button" style="width: 100%; height: 25%; background-color: goldenrod; border: none; font-size: 20px; font-weight: bold;" onclick="location='/Live.html'">Live</button>
-						</div>
-					</div>
-					<br />
-					<br />
-					<div style="text-align: center; margin-top: -1px;">
-						<span style="display: inline-block; width:200px; transform: translate(60px); height: 8px; margin-bottom: 16px; background-color: dimgray; overflow: visible;"></span>
-						<span onclick="location.reload()" style="cursor: pointer; border-style: outset; border-width: 1px; display: inline-block; width: 40px; transform: translate(-160px); height: 40px; background-color: lightgray; border-radius: 20px; overflow: hidden; color: dimgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold; ">1</span>
-						<span onclick="$(this).parents('form:first').submit()" style="cursor: pointer; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-100px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">2</span>
-						<span style="cursor: not-allowed; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-40px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">3</span>
-					</div>
-				</form>
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<div class="shake" style="display: none">
-					<a href="/AutoLDT.html">
-						<br />
-						<br />
-						<p class="bubble speech">Recommended</p>
-						<h3>Auto Sync</h3>
 
-						<div class="row">
-							<div class="col" style="font-size: large;">
-								<p>Skip manual input, let a chrome extension automatically sync the champion selections</p>
-							</div>
-						</div>
-					</a>
-					<br />
-					<br />
-					<br />
-				</div>
-				<div>
-					<h3>How does it work?</h3>
+				<h3>Currently in progress</h3>
 
-					<div class="row">
-						<div class="col" style="font-size: large;">
-							<ol>
-								<li>
-									Input
-									<ul>
-										<li>Summoners in your team</li>
-										<li>Champions selected</li>
-									</ul>
-								</li>
-								<li>
-									Get
-									<ul>
-										<li>Total Win Rate</li>
-										<li>Effect of each summoner/champion on the win rate <span style="font-size: small; vertical-align:text-top;" class="text-success"> Great for junglers!</span></li>
-									</ul>
-								</li>
-								<li>Queue dodge if the win rate is too low</li>
-							</ol>
-							<br />
-							<p>Check the <a href="/FAQ.html">FAQ</a> for more information</p>
-						</div>
-					</div>
-				</div>
-				<br/>
-				<br/>				
+				<br />
+				<ul>
+					<li>Redesign of web interface</li>
+					<li>Optimizing data import</li>
+					<li>Adding new features to the prediction such as "damage to champions" and "cc score"</li>
+				</ul>
+
+				<br />
+				<br />
+				<h3>Known issues</h3>
+
+				<br />
+				<ul>
+					<li>TLDR: Champion counters are not accurate due to id bug.<br/>
+					Details:<br/>
+					With the introduction of new champions, the model got some of the ids mixed up, so when you say champion A the model thinks champion B.
+					So what happens is that it may think you are good at champion B but in reality you are good at champion A, but the good news is that picking champion A in champion select 
+					will also make it think you are talking about champion A, "the champion you are good at".
+					So the prediction won't have counters and teamcomp quality.
+					For lower elo (Below D1) this shouldn't affect the prediction that much.</li>
+				</ul>
+
+				<br />
+				<br />
+				<h3>Patch History</h3>
+
+				<br />
+				<ul>
+					<li>
+						<h5>2020/10/29</h5>
+						<ul>
+							<li>Added support for other languages on Step 1</li>
+							<li>Network attempts to utilize at most 25% of CPU<br /><br /></li>
+						</ul>
+					</li>
+					<li>
+						<h5>2020/10/19</h5>
+						<ul>
+							<li>Removed logs from extension since this made some Chrome clients crash<br /><br /></li>
+						</ul>
+					</li>
+					<li>
+						<h5>2020/10/08</h5>
+						<ul>
+							<li>Changed GUI theme to black<br /><br /></li>
+						</ul>
+					</li>
+					<li>
+						<h5>2020/10/01</h5>
+						<ul>
+							<li>Optimized network, now runs 8x faster</li>
+							<li>Network attempts to utilize at most 50% of CPU<br /><br /></li>
+						</ul>
+					</li>
+					<li>
+						<h5>2020/09/29</h5>
+						<ul>
+							<li>Fixed bug where being red team on live mode would yield the opponents win rate<br /><br /></li>
+						</ul>
+					</li>
+				</ul>
 				
 				<!-- /Content -->
 				
@@ -179,8 +149,6 @@ Crisp joined the lobby"></textarea>
     <script src="https://kit.fontawesome.com/5c9f70024b.js" crossorigin="anonymous"></script>
 
     <script src="/js/site.js"></script>
-    <script src="/js/step1.js"></script>
-    <script src="/js/extension.js"></script>
 
 </body>
 </html>

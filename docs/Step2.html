@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="85b138a2-d17e-4496-a41f-965fda9d999a" data-blockingmode="auto" type="text/javascript"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176887591-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-176887591-1');
+    </script>
+
+    <meta charset="utf-8">
+    <title>LoL Dodge Tool - Queue Dodging Assistant</title>
+    <meta name="title" content="LoL Queue Dodge Tool" />
+    <meta property="og:title" content="LoL Queue Dodge Tool" />
+    <meta name="description" content="Find your win rate at champion select!" />
+    <meta property="og:description" content="Find your win rate at champion select!" />
+    <meta name="keywords" content="League of Legends Queue Dodge, LoL, Champion Suggestion, Champion Select, Team Optimizer" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.loldodgetool.com/" />
+    <meta property="og:image" content="https://www.loldodgetool.com/ldt128x128.png" />
+    <meta property="og:image:secure_url" content="https://www.loldodgetool.com/ldt128x128.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+</head>
+<body style="min-width:350px;">
+	<div id="overlay"></div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="margin-top: 5%; min-width: 600px">
+                <h1 style="text-align: center; font-size:61px; font-weight:bolder;"><a href="/" style="color: white;">LoL Queue Dodge Tool</a></h1>
+                <h5 style="text-align:center; font-size: 22px;">An AI that computes your chance of winning at Champion Select</h5>
+                <br />
+                <br />
+                <br />
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col" style="min-width: 600px">
+                
+				<!-- Content -->
+				
+				<form method="get" action="/WinRate.html" onsubmit="return submitStep2();" autocomplete="off">
+					<input type="hidden" name="region" id="step2RegionHidden">
+					<input type="hidden" name="team" id="step2Team">
+					<input type="hidden" name="champs" id="step2Champs">
+					<input type="hidden" name="otherChamps" id="step2OtherChamps">
+					<input type="hidden" name="blue" id="step2Blue">
+					<h3>What is your win rate?</h3>
+					<div class="row pt-1">
+						<div class="col">
+							<p>Fill in each champion, region and side.</p>
+						</div>
+					</div>
+					<div class="row">
+						<h5 class="col pb-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove; font-size: larger; margin-bottom: 0;">Your Team</h5>
+						<h5 class="col-3 pb-1" style="font-size: larger; margin-bottom: 0;">Enemy</h5>
+					</div>
+						<div class="row">
+							<div class="col pt-1">
+								<input class="form-control form-control-sm" type="text" placeholder="Unknown summoner" id="step2Summoner0" value="">
+							</div>
+							<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+								<select class="form-control form-control-sm championDropdown" id="step2Champion0"></select>
+							</div>
+							<div class="col-3 pt-1">
+								<select class="form-control form-control-sm championDropdown" id="step2OtherChampion0"></select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+						</div>
+
+						<div class="row">
+							<div class="col pt-1">
+								<input class="form-control form-control-sm" type="text" placeholder="Unknown summoner" id="step2Summoner1" value="">
+							</div>
+							<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+								<select class="form-control form-control-sm championDropdown" id="step2Champion1"></select>
+							</div>
+							<div class="col-3 pt-1">
+								<select class="form-control form-control-sm championDropdown" id="step2OtherChampion1"></select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+						</div>
+
+						<div class="row">
+							<div class="col pt-1">
+								<input class="form-control form-control-sm" type="text" placeholder="Unknown summoner" id="step2Summoner2" value="">
+							</div>
+							<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+								<select class="form-control form-control-sm championDropdown" id="step2Champion2"></select>
+							</div>
+							<div class="col-3 pt-1">
+								<select class="form-control form-control-sm championDropdown" id="step2OtherChampion2"></select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+						</div>
+
+						<div class="row">
+							<div class="col pt-1">
+								<input class="form-control form-control-sm" type="text" placeholder="Unknown summoner" id="step2Summoner3" value="">
+							</div>
+							<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+								<select class="form-control form-control-sm championDropdown" id="step2Champion3"></select>
+							</div>
+							<div class="col-3 pt-1">
+								<select class="form-control form-control-sm championDropdown" id="step2OtherChampion3"></select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+						</div>
+
+						<div class="row">
+							<div class="col pt-1">
+								<input class="form-control form-control-sm" type="text" placeholder="Unknown summoner" id="step2Summoner4" value="">
+							</div>
+							<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+								<select class="form-control form-control-sm championDropdown" id="step2Champion4"></select>
+							</div>
+							<div class="col-3 pt-1">
+								<select class="form-control form-control-sm championDropdown" id="step2OtherChampion4"></select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;"><span style="color:white"> </span></div>
+							<div class="col-3 pt-1 d-flex justify-content-end"><span style="color:white"> </span></div>
+						</div>
+
+					<br />
+					<div class="row">
+						<div class="col-3">
+							<div class="form-group">
+								<select class="form-control form-control-sm regionDropdown" id="step2Region" onchange="step2RegionChanged();"></select>
+							</div>
+						</div>
+						<div class="col-4">
+							<label class="yellow-checkbox" for="step2BlueTeam" data-toggle="tooltip" data-placement="bottom" title="Blue Team gets first pick" style="cursor:help">
+								Blue Team
+								<input type="checkbox" id="step2BlueTeam" data-toggle="tooltip" data-placement="bottom">
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						<div class="col"></div>
+						<div class="col-3">
+							<button type="submit" class="button" style="width: 100%; height: 100%; font-size: 25px; font-weight: bold; padding: 0;" id="step2Submit">Go</button>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div style="text-align: center; margin-top: 5px;">
+						<span style="display: inline-block; width:200px; transform: translate(60px); height: 8px; margin-bottom: 16px; background-color: dimgray; overflow: visible;"></span>
+						<span id="step2Back" onclick="backStep2()" style="cursor: pointer; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-160px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold; ">1</span>
+						<span onclick="location.reload()" style="cursor: pointer; border-style: outset; border-width: 1px; display: inline-block; width: 40px; transform: translate(-100px); height: 40px; background-color: lightgray; border-radius: 20px; overflow: hidden; color: dimgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">2</span>
+						<span onclick="$(this).parents('form:first').submit()" style="cursor: pointer; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-40px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">3</span>
+					</div>
+				</form>							
+				
+				<!-- /Content -->
+				
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <footer class="footer text-muted" id="footer" style="min-width: 600px">
+        <div class="container" style="font-style:italic; font-size: small; word-wrap: normal; white-space: normal; line-height: normal; padding-top: 10px;">
+            LoL Dodge Tool isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+            <br /><br />
+        </div>
+        <div class="border-top">
+            <div class="container" style="padding-top: 10px; padding-bottom: 10px; font-size: large">
+                <div class="row">
+                    <h5 class="" style="margin-left: 15px; margin-right: 15px;">&copy; 2020 - <a href="/">LoL Dodge Tool</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/Live.html">Live</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/AutoLDT.html">AutoLDT</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/FAQ.html">FAQ</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/PatchHistory.html">Patch History</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/GDPR.html">GDPR</a></h5>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/5c9f70024b.js" crossorigin="anonymous"></script>
+
+    <script src="/js/patchInfo.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/step2.js"></script>
+    <script src="/js/extension.js"></script>
+    <script src="/js/model.js"></script><!-- Pre-load for next step -->
+
+</body>
+</html>
+

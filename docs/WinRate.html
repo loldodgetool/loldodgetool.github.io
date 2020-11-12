@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="85b138a2-d17e-4496-a41f-965fda9d999a" data-blockingmode="auto" type="text/javascript"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176887591-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-176887591-1');
+    </script>
+
+    <meta charset="utf-8">
+    <title>LoL Dodge Tool - Queue Dodging Assistant</title>
+    <meta name="title" content="LoL Queue Dodge Tool" />
+    <meta property="og:title" content="LoL Queue Dodge Tool" />
+    <meta name="description" content="Find your win rate at champion select!" />
+    <meta property="og:description" content="Find your win rate at champion select!" />
+    <meta name="keywords" content="League of Legends Queue Dodge, LoL, Champion Suggestion, Champion Select, Team Optimizer" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.loldodgetool.com/" />
+    <meta property="og:image" content="https://www.loldodgetool.com/ldt128x128.png" />
+    <meta property="og:image:secure_url" content="https://www.loldodgetool.com/ldt128x128.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+</head>
+<body style="min-width:350px;">
+	<div id="overlay"></div>
+	
+	<div class="modal fade" id="setPathModal" tabindex="-1" role="dialog" aria-labelledby="setPathModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="setPathModalLabel">Set LoL client path</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" style="color: white">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Please specify the LoL client path.<br /><i>Default: </i><b>C:/Riot Games/League of Legends/</b><br />
+					<input type="text" id="newPath" class="form-control form-control-sm" style="width: 100%;" value="" placeholder="C:/Riot Games/League of Legends/" />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="button" style="background-color: lightgoldenrodyellow; padding: 10px; border-radius: 5px; font-size: 20px; font-weight: bold;" data-dismiss="modal">Cancel</button>
+					<button type="button" class="button" style="padding: 10px; border-radius: 5px; font-size: 20px; font-weight: bold;" onclick="setPath();">Set path</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="container content">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="margin-top: 5%; min-width: 600px">
+                <h1 style="text-align: center; font-size:61px; font-weight:bolder;"><a href="/" style="color: white;">LoL Queue Dodge Tool</a></h1>
+                <h5 style="text-align:center; font-size: 22px;">An AI that computes your chance of winning at Champion Select</h5>
+                <br />
+                <br />
+                <br />
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col" style="min-width: 600px">
+                
+				<!-- Content -->
+				
+				<form method="get" action="/Step2.html" onsubmit="submitStepWr();" autocomplete="off">
+					<input type="hidden" id="hiddenRegion" name="region" value="">
+					<input type="hidden" id="hiddenTeam" name="team" value="">
+					<input type="hidden" id="hiddenChamps" name="champs" value="">
+					<input type="hidden" id="hiddenOtherChamps" name="otherChamps" value="">
+					<input type="hidden" id="hiddenBlue" name="blue" value="">
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col">
+							<h2 style="text-align: center; font-size: 45px;">
+								<span id="wr-total-loading" class="spinner-grow text-secondary"></span>
+								<span class="text-secondary" id="wr-total-result"> Loading...</span>
+							</h2>
+						</div>
+						<div class="col-1"></div>
+					</div>
+					<div class="row pt-1">
+						<div class="col">
+							<p style="height: 3px;"> </p>
+						</div>
+					</div>
+					<div class="row pt-1">
+						<h5 class="col pb-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove; font-size: larger; margin-bottom: 0;">Your Team</h5>
+						<h5 class="col-3 pb-1" style="font-size: larger; margin-bottom: 0;">Enemy</h5>
+					</div>
+					<div class="row" onclick="$(this).parents('form:first').submit()">
+						<div class="col pt-1">
+							<input id="syncSummoner0" class="form-control form-control-sm" type="text" value="" placeholder="Unknown summoner" disabled>
+						</div>
+						<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<input id="syncChampion0" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+						<div class="col-3 pt-1">
+							<input id="syncOpponent0" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col pt-1 d-flex justify-content-end">
+							<span id="wr-summoner0-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-summoner0-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<span id="wr-champion0-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-champion0-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end">
+							<span id="wr-opponent0-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-opponent0-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+					</div>
+					
+					<div class="row" onclick="$(this).parents('form:first').submit()">
+						<div class="col pt-1">
+							<input id="syncSummoner1" class="form-control form-control-sm" type="text" value="" placeholder="Unknown summoner" disabled>
+						</div>
+						<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<input id="syncChampion1" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+						<div class="col-3 pt-1">
+							<input id="syncOpponent1" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col pt-1 d-flex justify-content-end">
+							<span id="wr-summoner1-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-summoner1-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<span id="wr-champion1-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-champion1-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end">
+							<span id="wr-opponent1-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-opponent1-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+					</div>
+					
+					<div class="row" onclick="$(this).parents('form:first').submit()">
+						<div class="col pt-1">
+							<input id="syncSummoner2" class="form-control form-control-sm" type="text" value="" placeholder="Unknown summoner" disabled>
+						</div>
+						<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<input id="syncChampion2" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+						<div class="col-3 pt-1">
+							<input id="syncOpponent2" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col pt-1 d-flex justify-content-end">
+							<span id="wr-summoner2-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-summoner2-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<span id="wr-champion2-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-champion2-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end">
+							<span id="wr-opponent2-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-opponent2-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+					</div>
+					
+					<div class="row" onclick="$(this).parents('form:first').submit()">
+						<div class="col pt-1">
+							<input id="syncSummoner3" class="form-control form-control-sm" type="text" value="" placeholder="Unknown summoner" disabled>
+						</div>
+						<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<input id="syncChampion3" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+						<div class="col-3 pt-1">
+							<input id="syncOpponent3" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col pt-1 d-flex justify-content-end">
+							<span id="wr-summoner3-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-summoner3-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<span id="wr-champion3-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-champion3-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end">
+							<span id="wr-opponent3-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-opponent3-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+					</div>
+					
+					<div class="row" onclick="$(this).parents('form:first').submit()">
+						<div class="col pt-1">
+							<input id="syncSummoner4" class="form-control form-control-sm" type="text" value="" placeholder="Unknown summoner" disabled>
+						</div>
+						<div class="col-3 pt-1" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<input id="syncChampion4" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+						<div class="col-3 pt-1">
+							<input id="syncOpponent4" class="form-control form-control-sm" type="text" value="" placeholder="Unknown" disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col pt-1 d-flex justify-content-end">
+							<span id="wr-summoner4-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-summoner4-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end" style="border-width: 0px; border-right: 1px solid #7cced6; border-style: groove;">
+							<span id="wr-champion4-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-champion4-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+						<div class="col-3 pt-1 d-flex justify-content-end">
+							<span id="wr-opponent4-loading" class="spinner-grow spinner-grow-sm text-secondary"></span><span class="text-secondary" id="wr-opponent4-result" data-toggle="tooltip" data-placement="bottom" title="Impact on Win Rate, see FAQ" style="cursor:help"></span><span style="color:white"> </span>
+						</div>
+					</div>
+						
+					<br />
+					<div class="row">
+						<div class="col-3" style="padding-right: 0px;" onclick="$(this).parents('form:first').submit()">
+							<div class="form-group">
+								<input id="syncRegion" class="form-control form-control-sm" type="text" value="" disabled>
+							</div>
+						</div>
+						<div class="col-3" style="padding-right: 0px;" onclick="$(this).parents('form:first').submit()">
+							<label class="yellow-checkbox" for="syncBlueTeam" data-toggle="tooltip" data-placement="bottom" title="Blue Team gets first pick" style="cursor:help">
+								Blue Team
+								<input type="checkbox" id="syncBlueTeam" data-toggle="tooltip" data-placement="bottom" disabled>
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						<div class="col text-right">
+							<span class="clipboard-on-click"><img src="/share.png" onclick="shareLink()" style="width: 25px; border-radius: 6px; cursor: pointer;" data-toggle="tooltip" data-placement="bottom" title="Share results" /></span>
+							<img src="/opggicon.png" onclick="loadOnOPGG()" style="width: 25px; border-radius: 6px; cursor: pointer;" data-toggle="tooltip" data-placement="bottom" title="Load on op.gg" />
+							<img src="/porofessoricon.png" onclick="loadOnPorofessor()" style="width: 25px; border-radius: 6px; cursor: pointer;" data-toggle="tooltip" data-placement="bottom" title="Load on porofessor.gg" />
+						</div>
+						<div class="col-3">
+							<button type="button" class="button" style="width: calc(50% - 2px); height: 100%; float:left; background-color: goldenrod; border: none; font-size: 20px; font-weight: bold;" id="liveSwitch" onclick="location='/Live.html'">Live</button>
+							<button type="button" class="button" style="width: calc(50% - 2px); height: 100%; float:right; font-size: 20px; font-weight: bold; padding: 0;" id="syncNow" disabled>Sync</button>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div style="text-align: center; margin-top: 7px;">
+						<span style="display: inline-block; width:200px; transform: translate(60px); height: 8px; margin-bottom: 16px; background-color: dimgray; overflow: visible;"></span>
+						<span onclick="location = '/';" style="cursor: pointer; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-160px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold; ">1</span>
+						<span onclick="$(this).parents('form:first').submit()" style="cursor: pointer; border-style: outset; border-width: 0px; display: inline-block; width: 40px; transform: translate(-100px); height: 40px; background-color: dimgray; border-radius: 20px; overflow: hidden; color: lightgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">2</span>
+						<span onclick="location.reload()" style="cursor: pointer; border-style: outset; border-width: 1px; display: inline-block; width: 40px; transform: translate(-40px); height: 40px; background-color: lightgray; border-radius: 20px; overflow: hidden; color: dimgray; text-align: center; line-height: 40px; font-size: 25px; font-weight: bold;">3</span>
+					</div>
+
+				</form>
+				<br />
+				<br />
+				
+				<!-- /Content -->
+				
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <footer class="footer text-muted" id="footer" style="min-width: 600px">
+        <div class="container" style="font-style:italic; font-size: small; word-wrap: normal; white-space: normal; line-height: normal; padding-top: 10px;">
+            LoL Dodge Tool isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+            <br /><br />
+        </div>
+        <div class="border-top">
+            <div class="container" style="padding-top: 10px; padding-bottom: 10px; font-size: large">
+                <div class="row">
+                    <h5 class="" style="margin-left: 15px; margin-right: 15px;">&copy; 2020 - <a href="/">LoL Dodge Tool</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/Live.html">Live</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/AutoLDT.html">AutoLDT</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/FAQ.html">FAQ</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/PatchHistory.html">Patch History</a></h5>
+                    <h5 class="border-left" style="padding-left: 15px; padding-right: 15px;"><a href="/GDPR.html">GDPR</a></h5>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/5c9f70024b.js" crossorigin="anonymous"></script>
+
+    <script src="/js/patchInfo.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/stepwr.js"></script>
+    <script src="/js/results.js"></script>
+    <script src="/js/extension.js"></script>
+    <script src="/js/predictor.js"></script>
+    <script src="/js/model.js"></script>
+
+</body>
+</html>
+
