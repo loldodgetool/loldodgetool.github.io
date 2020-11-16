@@ -66,20 +66,22 @@ function updateLocalStorage() {
 async function getInfoFromServer(region, summoners) {
     return await new Promise(resolve => {
         try {
-			
-			//TBD connect to lambda
-            let ajaxData = { summoners: summoners.join(','), region: region };
-            $.ajax({ method: "GET", url: "/LoadInfo", data: ajaxData }).done(function (msg) {
-                if (msg.error) {
-                    console.log(msg.error);
-                    resolve(null);
-                } else {
-                    resolve(msg.result.map(x => { return x == null ? null : { tierInfo: JSON.parse(x.tierInfo), matchInfo: JSON.parse(x.matchInfo) }; }));
-                }
-            }).fail(function (jqXHR, textStatus) {
-                console.log(textStatus);
-                resolve(null);
-            });
+			$.ajax(
+			{
+				url: 'https://7y7f7tk3nd.execute-api.us-east-2.amazonaws.com/default/getSummoners',
+				type:'POST',
+				data: region + "," + summoners.join(','),
+				success: function(data)
+				{
+					var res = JSON.parse(data);
+					resolve(res.map(x => { return x == null ? null : { tierInfo: JSON.parse(x.tier), matchInfo: JSON.parse(x.performances) }; }));
+				},
+				error: function(data)
+				{
+					console.log(data);
+					resolve(null);
+				}
+			}); 			
         } catch (ex) {
             console.log(ex);
             resolve(null);
