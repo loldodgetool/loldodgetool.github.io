@@ -134,7 +134,7 @@ function moveToQuery() {
 }
 
 function getQueryPath() {
-    return '/WinRate.html?region=' + Query.Region + '&team=' + encodeURIComponent(Query.Summoners.join(',')) + '&champs=' + encodeURIComponent(Query.Champions.join(',')) + '&otherChamps=' + encodeURIComponent(Query.OtherChampions.join(',')) + '&blue=' + Query.IsBlueTeam;
+    return '/WinRate?region=' + Query.Region + '&team=' + encodeURIComponent(Query.Summoners.join(',')) + '&champs=' + encodeURIComponent(Query.Champions.join(',')) + '&otherChamps=' + encodeURIComponent(Query.OtherChampions.join(',')) + '&blue=' + Query.IsBlueTeam;
 }
 
 function setPath() {

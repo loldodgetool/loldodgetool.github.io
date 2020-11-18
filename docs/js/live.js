@@ -12,7 +12,7 @@ function submitLive() {
 
 $(async () => {
     if (!await extIsConnected()) {
-		location = "/AutoLDT.html";
+		location = "/AutoLDT";
 		return;
 	}
 
