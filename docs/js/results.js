@@ -55,7 +55,7 @@ function updateLocalStorage() {
         stats[summ] = (stats[summ] || 0) + .1;
     }
     let sorted = Object.keys(stats).sort((a, b) => stats[b] - stats[a]);
-    let leave = sorted.slice(100);
+    let leave = sorted.slice(100); //Limit the size
     for (let summ of leave) {
         delete stats[summ];
     }
@@ -92,7 +92,7 @@ async function getInfoFromServer(region, summoners) {
 let cacheTimeoutMinutes = 10;
 function getLocalCache() {
 	let cache = {};
-	try { cache = JSON.parse(localStorage.getItem("cache")) ?? {}; } catch { }
+	try { cache = JSON.parse(localStorage.getItem("cache")) ?? {}; } catch(ex) { console.log(ex); }
 	for (let region of Object.keys(cache)) {
 		for (let summoner of Object.keys(cache[region])) {
 			if (new Date(cache[region][summoner].time).addMinutes(cacheTimeoutMinutes) < new Date()) delete cache[region][summoner];
@@ -125,8 +125,22 @@ function storeInfoInLocalCache() {
 			cache[Query.Region][Query.Summoners[i]] = {res: Query.SummonerInfos[i], time: new Date()};
 		}
 	}
+	
+	//Limit cache size
+	let sortedByTime = [];
+	for (let region of Object.keys(cache)) {
+		for (let summoner of Object.keys(cache[region])) {
+			sortedByTime.push([region, summoner, new Date(cache[region][summoner].time)]);
+		}
+	}
+    sortedByTime = sortedByTime.sort((a, b) => b[2] - a[2]);
+    let remove = sortedByTime.slice(15);
+	for (let x of remove) {
+		delete cache[x[0]][x[1]];
+	}
+	
 
-	localStorage.setItem("cache", JSON.stringify(cache));
+	try { localStorage.setItem("cache", JSON.stringify(cache)); } catch(ex) { console.log(ex); }
 }
 
 function moveToQuery() {
