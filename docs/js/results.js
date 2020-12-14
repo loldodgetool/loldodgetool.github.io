@@ -276,9 +276,9 @@ async function getInfo() {
     }
 
     Query.SummonerInfos = getInfoFromLocalCache(Query.Region, Query.Summoners);
-	let maxTries = 3;
+	let maxTries = 4;
 	for (var try_ = 0; try_ < maxTries; ++try_) {
-		if (try_ > 0) await sleep(4000);
+		if (try_ > 0) await sleep(5000);
 
 		let remainingSummoners = Query.Summoners.map((x, i) => Query.SummonerInfos[i] == null && x != "" ? x : null);
 		if (remainingSummoners.filter(x => x != null) == 0) break;
