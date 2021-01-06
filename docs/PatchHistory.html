@@ -51,28 +51,11 @@
                 
 				<!-- Content -->
 
-				<h3>Currently in progress</h3>
-
-				<br />
-				<ul>
-					<li>Redesign of web interface</li>
-					<li>Optimizing data import</li>
-					<li>Adding new features to the prediction such as "damage to champions" and "cc score"</li>
-				</ul>
-
-				<br />
-				<br />
 				<h3>Known issues</h3>
 
 				<br />
 				<ul>
-					<li>TLDR: Champion counters are not accurate due to id bug.<br/>
-					Details:<br/>
-					With the introduction of new champions, the model got some of the ids mixed up, so when you say champion A the model thinks champion B.
-					So what happens is that it may think you are good at champion B but in reality you are good at champion A, but the good news is that picking champion A in champion select 
-					will also make it think you are talking about champion A, "the champion you are good at".
-					So the prediction won't have counters and teamcomp quality.
-					For lower elo (Below D1) this shouldn't affect the prediction that much.</li>
+					<li>Not using the extension is much slower now and may crash at times, this method was preferred to optimize results when using the extension.</li>
 				</ul>
 
 				<br />
@@ -81,6 +64,16 @@
 
 				<br />
 				<ul>
+					<li>
+						<h5>2021/01/06</h5>
+						<ul>
+							<li>Changed the data analyzed, has now greater potential for better results in the future - to come in future updates</li>
+							<li>A long overdue network update. It has now trained on matches from preseason too. Note: The decrease in winrate may be because of the unstability of preseason, but also because we haven't yet aquired as many samples of the new data format as we had before. We will work on further increasing the prediction rate in the future.</li>
+							<li>Fixed bugs, some champion ids had been scrambled up</li>
+							<li>The new network should better handle new champions if it never trained on them before</li>
+							<li>Data fetching time is now roughly 8x faster<br /><br /></li>
+						</ul>
+					</li>
 					<li>
 						<h5>2020/10/29</h5>
 						<ul>

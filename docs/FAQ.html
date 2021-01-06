@@ -81,12 +81,18 @@
 				<br />
 				<h5 id="prediction-rate"><i class="far fa-user-circle fa-xs"></i> How accurate is the prediction?</h5>
 				<p>
-					The total prediction rate is currently <b>65%</b> which means it will accurately predict the winner for 65% of all games, from the information available at champion select only.
-					If you would only play games with over 50% win rate, you will potentially have a 65% win rate.
+					The average prediction rate is currently <b>61.4%</b> which means it will accurately predict the winner for 61.4% of all games, from the information available at champion select only.
+					If you would only play games with over 50% win rate, you will potentially have a 61.4% win rate. In the graph below you can see how that prediction rate changes depending on your league.
 				</p>
 				<img src="/error_graph.png" asp-append-version="true" style="width: 100%;" />
 				<p>
 					The above results come only from games the predictor never saw in the past, a.k.a. "<a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets" target="_blank">Test Set</a>".
+				</p>
+				<br />
+				<br />
+				<h5><i class="far fa-user-circle fa-xs"></i> Why does the prediction rate change over time?</h5>
+				<p>
+					Different periods of the season may have different stability of the matchmaking. We also constantly make changes to improve the prediction over time.
 				</p>
 				<br />
 				<br />
@@ -106,7 +112,7 @@
 				<br />
 				<h5><i class="far fa-user-circle fa-xs"></i> How does it work?</h5>
 				<p>
-					A Deep <a href="/js/model.js" class="model-link" target="_blank">Neural Network</a>, with 23689 input variables, trained on over 60,000,000 games.
+					A Deep <a href="/js/model.js?v=20210106" class="model-link" target="_blank">Neural Network</a>, with 23689 input variables, trained on over 60,000,000 games.
 				</p>
 				<br />
 				<br />
@@ -156,7 +162,7 @@
 				<br />
 				<h5><i class="far fa-user-circle fa-xs"></i> Live mode makes my computer lag</h5>
 				<p>
-					Computing winrates launches 16 <a href="/js/model.js" class="model-link" target="_blank">neural network</a> computations.
+					Computing winrates launches 16 <a href="/js/model.js?v=20210106" class="model-link" target="_blank">neural network</a> computations.
 					In live mode winrates are computed each time a change happens in champion select.
 					If you rather the computations happen one at a time, you can turn that on here:
 					<div class="custom-control custom-switch" style="padding-right: 0px;">
