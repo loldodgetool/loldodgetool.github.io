@@ -28,7 +28,7 @@ $(async () => {
 
     if (!extensionConnected) {
         $('#syncNow').popover('dispose');
-        $('#syncNow').popover({ html: true, container: 'body', trigger: 'focus', placement: 'bottom', content: () => '✗ Requires <a href="/AutoLDT">AutoLDT</a><br/>Click the back arrow above to return' });
+        $('#syncNow').popover({ html: true, container: 'body', trigger: 'focus', placement: 'bottom', content: () => '✗ Requires <a href="/AutoLDT">AutoLDT</a>' });
     } else {
         $('#syncNow').attr('onclick', 'ldtSync(false);');
     }
